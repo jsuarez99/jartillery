@@ -1,0 +1,142 @@
+Jartillery!
+By Joshua Suarez
+joshuasuarez@gmail.com
+
+
+Copyright (c) 2011 Joshua Suarez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+-------------------------------------------------------------------------------------------------
+
+DEVELOPMENT LOG
+
+---
+February 24th, 2011
+---
+
+Finished up the CSS to get the sliders to stay in place correctly.  I'm official releasing this 
+as 1.0 and am no longer going to update it.
+
+---
+February 21st, 2011
+---
+
+Added the exploding shell effect.  When the fired shell hits something, it will explode to a 25
+pixel radius, and if a tank is within that range, it's health will go down.  This makes the game
+much more playable than before.
+
+---
+January 30th, 2011
+---
+
+Upgraded jQuery to 1.4.4.  All javascript files are now under the lib/ folder and all css files are
+under css/.  I added two vertical sliders from jQueryUI to the page and had them both control the
+players' firing speed.  Easy enough, now I need to get the CSS to work correctly.
+
+---
+December 26th, 2010
+---
+
+Couple of new things today:  A) I added some displays for the players' armor/health, B)a game over 
+pop up that has a button to restart the game, and C) implemented the two players taking turns
+after each shot is completed.
+
+The game is, for the most part, complete, but I still need to find a good way to have players 
+adjust the firing speed of the bullets and a few design issues.
+
+---
+December 16th, 2010
+---
+
+A collision detection function for the tanks was added.
+
+---
+December 15th, 2010
+---
+
+I added the trajectory equations in to the bullet drawing function and some detection for when it
+hits the floor.  Cleaned up the code a bit and took out most of the debug output for now.  The 
+bullet travels at a steady pace of approximately 30 fps.  I'll have to add in tank detection and
+some way of selecting the bullet's initial speed.
+
+---
+December 14th, 2010
+---
+
+To draw a "bullet" moving across the screen requires an interval to be set with some global 
+variables to keep track of its movement and the elapsed time.  When the users clicks on the screen,
+all event listeners on the canvas are removed and the bullet is drawn going in the direction the
+user was aiming at when he clicked.
+
+Next up, throwing in projectile motion (currently its just going straight forward) and collision
+detection.
+
+---
+December 13th, 2010
+---
+
+Worked on drawing some arcs that would be drawn when the player clicks, but I think I will switch
+to the projectile being a dot that fires in an arc.  Much easier to animate than a bezier curve.
+
+---
+November 28th, 2010
+---
+
+Added a function that draws a line that follows the mouse as the user aims his next shot. To draw
+it properly, I also needed to create a redraw function that draws the field again without the
+lines.  Now is where I have to make everything very efficient, since there are many floating point
+calculations with each redraw and each line drawing.
+
+The project is now called Jartillery! (no real reason behind the name)
+
+---
+November 20th, 2010
+---
+Created a class to store the positions of the ground and each of the two player tanks.  I created
+a function to randomly place the tanks somewhere above the ground on each half of the screen.
+
+So far, so good.
+
+---
+November 19th, 2010
+---
+I had a ton of trouble putting lines onto the canvas because it looked as if pixels were much
+bigger than regular screen pixels.  It turns out the CSS height and width properties are not
+applied until well after my document.ready functions had run.  The canvas' height and width
+were still 150 and 300, respectively.  The functions run, then the css is applied and the 
+canvas with its contents are stretched to 640 by 480.  It looks like I have to hard code the
+numbers the height and width into the html or set them in javascript.
+
+Next was to create the field, which is a mountainous terrain.  So a random number is generated
+for the initial line's height.  As we go across the screen, the height is increased or decreased
+by a random range of pixels between 10 and -10.  This gives a pretty good result on each refresh.
+
+---
+November 18th, 2010
+---
+Project begins.  This goal is to make a simple clone of the old Mac Artillery game using the
+HTML5 canvas and javascript.  Today, the canvas was set to a 640x480 resolution and a mouse
+over function was placed on it to track the coordinates of the mouse's location.  The function
+for getting the (X,Y) position of the mouse was written by Peter-Paul Koch at 
+http://www.quirksmode.org/js/events_properties.html.
+
+I modified it to subtract the canvas' offsetLeft and offsetTop properties from the document
+coordinates so that the top left of the canvas would be (0,0).

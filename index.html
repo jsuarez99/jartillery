@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Jartillery! by Josh Suarez</title>
+
+<!--
+
+Copyright (c) 2011 Joshua Suarez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+
+
+<link rel="stylesheet" type="text/css" href="css/artilleryStyle.css"></link>
+<link rel="stylesheet" type="text/css" href="css/ui-darkness/jquery-ui-1.8.9.custom.css"></link>
+
+<script type="text/javascript" src="lib/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="lib/artillery.min.js"></script>
+<script type="text/javascript" src="lib/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="lib/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="lib/jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="lib/jquery.ui.slider.min.js"></script>
+
+</head>
+
+<!-- Body================================================== -->
+<body>
+	<div id="canvasWrapper">
+            <div id="sliderDiv">
+		<div id="p1slider">
+			<p id="p1speedlabel">
+				<label for="p1amount">Speed(mph):</label>
+				<input type="text" id="p1amount" style="width: 25px; border:0; color:#f6931f; font-weight:bold;" />
+			</p>
+			<div id="p1slider-vertical" style="height:200px;"></div>
+		</div>
+
+		<div id="p2slider">
+			<p id="p2speedlabel">
+				<label for="p2amount">Speed(mph):</label>
+				<input type="text" id="p2amount" style="width: 25px; border:0; color:#f6931f; font-weight:bold;" />
+			</p>
+			<div id="p2slider-vertical" style="height:200px;"></div>
+		</div>
+            </div>
+
+
+		<canvas id="artilleryCanvas" height="480px" width="640px"></canvas>
+
+		
+		<br>
+		<p id="coords"></p>
+		<p id="aboveBelow"></p>
+	</div> <!-- canvasWrapper -->
+
+	<div id="scoreWrapper">
+		<div id="p1score" class="playerScore"><p class="score">100</p></div>
+		<div id="p2score" class="playerScore"><p class="score">100</p></div>
+	</div>
+
+
+
+
+</body>
+</html>
